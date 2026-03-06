@@ -485,10 +485,12 @@ function exportCSV(src) {
 // ========== NOMIS ==========
 function buildNomisUrl() {
   const yr = document.getElementById('nomisYear').value;
+  // Use NOMIS search parameter to find SIC 64, 65, 66 by name
+  // The BRES open access dataset (NM_189_1) uses internal codes
+  // We fetch all 2-digit industries for Scotland and filter client-side
   return 'https://www.nomisweb.co.uk/api/v01/dataset/NM_189_1.data.csv'
     + '?geography=2013265931'
     + '&date=' + (yr === 'latest' ? 'latest' : yr)
-    + '&industry=37748736,37748737,37748738'
     + '&employment_status=1,4'
     + '&measures=1'
     + '&select=DATE_NAME,GEOGRAPHY_NAME,INDUSTRY_NAME,EMPLOYMENT_STATUS_NAME,OBS_VALUE';
@@ -506,9 +508,26 @@ async function fetchNomis() {
     if (!res.ok) throw new Error('HTTP ' + res.status + ': ' + res.statusText);
     const text = await res.text();
     const parsed = parseCSV(text);
-    if (!parsed.rows.length) throw new Error('No rows returned — the industry codes or year may need adjusting.');
-    nomisData = parsed;
-    renderTable('nomisResults', parsed, 'BRES Results — Scotland, SIC 64–66');
+
+    if (!parsed.rows.length) throw new Error('No rows returned from NOMIS. The API may be temporarily unavailable.');
+
+    // Filter for SIC 64, 65, 66 (financial services) by industry name
+    const financialKeywords = ['64 ', '65 ', '66 ', 'financial service', 'insurance', 'pension funding', 'auxiliary to financial', 'auxiliary to insurance'];
+    const filtered = parsed.rows.filter(row => {
+      const name = (row.INDUSTRY_NAME || '').toLowerCase();
+      return financialKeywords.some(kw => name.includes(kw.toLowerCase()));
+    });
+
+    if (filtered.length > 0) {
+      const result = { headers: parsed.headers, rows: filtered };
+      nomisData = result;
+      renderTable('nomisResults', result, 'BRES Results — Scotland, SIC 64–66 (' + filtered.length + ' of ' + parsed.rows.length + ' rows)');
+    } else {
+      // Show all data if no financial rows found, with a note
+      nomisData = parsed;
+      renderTable('nomisResults', parsed, 'BRES Results — All Industries (financial filter matched 0 rows — showing all ' + parsed.rows.length + ')');
+    }
+
     document.getElementById('nomisExport').style.display = '';
     setBadge('nomisBadge','success');
   } catch (e) {
