@@ -33,32 +33,21 @@
     --radius: 10px;
     --radius-lg: 16px;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: 'DM Sans', -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    padding: 24px;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; padding: 24px;
     -webkit-font-smoothing: antialiased;
   }
-
   .container { max-width: 1140px; margin: 0 auto; }
-
-  /* ---- HEADER ---- */
   .header { margin-bottom: 32px; }
-  .header-row {
-    display: flex; align-items: center; gap: 16px;
-  }
+  .header-row { display: flex; align-items: center; gap: 16px; }
   .logo {
     width: 48px; height: 48px;
     background: linear-gradient(135deg, var(--accent), #a78bfa);
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 0 24px var(--accent-glow);
-    flex-shrink: 0;
+    border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 24px var(--accent-glow); flex-shrink: 0;
   }
   .logo svg { width: 24px; height: 24px; stroke: white; fill: none; }
   .header h1 {
@@ -68,47 +57,30 @@
     background-clip: text; line-height: 1.2;
   }
   .header .sub { font-size: 13px; color: var(--text-dim); margin-top: 3px; letter-spacing: 0.02em; }
-
-  /* ---- PULL BUTTON ---- */
   .pull-btn {
     display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 32px;
-    font-family: inherit; font-size: 14px; font-weight: 600;
+    padding: 14px 32px; font-family: inherit; font-size: 14px; font-weight: 600;
     color: white; background: var(--accent);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px; cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; cursor: pointer;
     box-shadow: 0 0 32px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.1);
-    transition: all 0.2s;
-    margin-bottom: 28px;
-    letter-spacing: 0.02em;
+    transition: all 0.2s; margin-bottom: 28px; letter-spacing: 0.02em;
   }
   .pull-btn:hover { background: var(--accent-hover); box-shadow: 0 0 48px var(--accent-glow); transform: translateY(-1px); }
   .pull-btn:active { transform: translateY(0); }
   .pull-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
   .pull-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
-
-  /* ---- GRID ---- */
   .grid { display: grid; gap: 20px; }
   @media(min-width:920px) { .grid { grid-template-columns: 1fr 1fr; } }
-
-  /* ---- CARD ---- */
   .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    transition: border-color 0.2s;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 24px; transition: border-color 0.2s;
   }
   .card:hover { border-color: var(--border-light); }
-  .card-head {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 14px;
-  }
+  .card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
   .card-title { display: flex; align-items: center; gap: 12px; }
   .card-icon {
     width: 36px; height: 36px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
   .card-icon svg { width: 18px; height: 18px; fill: none; }
   .card-icon.blue { background: var(--blue-dim); }
@@ -116,16 +88,10 @@
   .card-icon.teal { background: var(--teal-dim); }
   .card-icon.teal svg { stroke: var(--teal); }
   .card h2 { font-size: 15px; font-weight: 600; color: var(--text); }
-  .card .desc {
-    font-size: 12px; color: var(--text-muted); line-height: 1.65;
-    margin-bottom: 16px;
-  }
-
-  /* ---- BADGE ---- */
+  .card .desc { font-size: 12px; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; }
   .badge {
     display: inline-flex; align-items: center; gap: 6px;
-    padding: 4px 11px; border-radius: 50px;
-    font-size: 11px; font-weight: 500; letter-spacing: 0.02em;
+    padding: 4px 11px; border-radius: 50px; font-size: 11px; font-weight: 500; letter-spacing: 0.02em;
   }
   .badge .dot { width: 6px; height: 6px; border-radius: 50%; }
   .badge.idle { background: var(--surface-raised); color: var(--text-muted); }
@@ -137,113 +103,64 @@
   .badge.error { background: var(--red-dim); color: var(--red); }
   .badge.error .dot { background: var(--red); }
   @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.25} }
-
-  /* ---- CONTROLS ---- */
-  .controls {
-    display: flex; align-items: center; gap: 10px;
-    flex-wrap: wrap; margin-bottom: 16px;
-  }
+  .controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
   .controls label { font-size: 12px; font-weight: 500; color: var(--text-dim); }
   .controls select {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px; padding: 7px 12px;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 7px 12px;
     background: var(--surface-raised); color: var(--text);
-    border: 1px solid var(--border); border-radius: 8px; outline: none;
-    cursor: pointer;
+    border: 1px solid var(--border); border-radius: 8px; outline: none; cursor: pointer;
   }
   .controls select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
-
   .btn {
-    font-family: inherit;
-    padding: 7px 16px; font-size: 12px; font-weight: 600;
-    border: none; border-radius: 8px; cursor: pointer;
-    transition: all 0.15s; letter-spacing: 0.02em;
+    font-family: inherit; padding: 7px 16px; font-size: 12px; font-weight: 600;
+    border: none; border-radius: 8px; cursor: pointer; transition: all 0.15s; letter-spacing: 0.02em;
   }
   .btn:disabled { opacity: 0.4; cursor: not-allowed; }
   .btn-blue { background: var(--blue); color: #0c0f1a; }
   .btn-blue:hover { filter: brightness(1.15); }
   .btn-teal { background: var(--teal); color: #0c0f1a; }
   .btn-teal:hover { filter: brightness(1.15); }
-  .btn-ghost {
-    background: var(--surface-raised); color: var(--text-dim);
-    border: 1px solid var(--border);
-  }
+  .btn-ghost { background: var(--surface-raised); color: var(--text-dim); border: 1px solid var(--border); }
   .btn-ghost:hover { background: var(--surface-hover); color: var(--text); }
   .btn-ghost svg { width: 14px; height: 14px; stroke: currentColor; fill: none; vertical-align: -2px; margin-right: 4px; }
-
-  .ext-link {
-    font-size: 11px; color: var(--teal); opacity: 0.8;
-    text-decoration: none; margin-left: auto; transition: opacity 0.15s;
-  }
+  .ext-link { font-size: 11px; color: var(--teal); opacity: 0.8; text-decoration: none; margin-left: auto; transition: opacity 0.15s; }
   .ext-link:hover { opacity: 1; text-decoration: underline; }
-
-  /* ---- ERROR ---- */
-  .error-box {
-    background: var(--red-dim); border: 1px solid rgba(255,107,107,0.2);
-    border-radius: var(--radius); padding: 14px; margin-bottom: 14px;
-  }
+  .error-box { background: var(--red-dim); border: 1px solid rgba(255,107,107,0.2); border-radius: var(--radius); padding: 14px; margin-bottom: 14px; }
   .error-box p { font-size: 12px; color: var(--red); line-height: 1.6; }
   .error-box a { color: var(--red); text-decoration: underline; opacity: 0.85; }
   .error-box a:hover { opacity: 1; }
-
-  /* ---- TABLE ---- */
   .table-label { font-size: 13px; font-weight: 600; color: var(--text-dim); margin-top: 18px; margin-bottom: 8px; }
-  .table-wrap {
-    overflow-x: auto; border-radius: var(--radius);
-    border: 1px solid var(--border);
-  }
+  .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
   .table-wrap table { width: 100%; border-collapse: collapse; }
   .table-wrap th {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
-    text-align: left; padding: 10px 14px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase; text-align: left; padding: 10px 14px;
     background: var(--surface-raised); color: var(--text-muted);
     border-bottom: 1px solid var(--border); white-space: nowrap;
   }
   .table-wrap td {
-    font-size: 12px; padding: 9px 14px;
-    border-bottom: 1px solid var(--border);
+    font-size: 12px; padding: 9px 14px; border-bottom: 1px solid var(--border);
     color: var(--text-dim); white-space: nowrap;
   }
   .table-wrap tr:hover td { background: var(--surface-raised); color: var(--text); }
   .table-wrap td.num { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text); font-weight: 500; }
   .row-count { font-size: 11px; color: var(--text-muted); margin-top: 10px; }
-
-  /* ---- FOOTER INFO ---- */
   .info-footer {
-    margin-top: 32px; padding: 24px;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    margin-top: 32px; padding: 24px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: var(--radius-lg);
   }
   .info-footer h3 { font-size: 14px; font-weight: 600; color: var(--text-dim); margin-bottom: 16px; }
   .info-cols { display: grid; gap: 20px; }
   @media(min-width:640px) { .info-cols { grid-template-columns: 1fr 1fr; } }
   .info-cols .label { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-  .info-cols p {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; color: var(--text-muted); line-height: 1.85;
-  }
+  .info-cols p { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); line-height: 1.85; }
   .info-cols a { color: var(--accent); text-decoration: none; font-family: 'DM Sans', sans-serif; }
   .info-cols a:hover { text-decoration: underline; }
-
-  .copyright {
-    text-align: center; font-size: 11px; color: var(--text-muted);
-    margin-top: 28px; opacity: 0.6;
-  }
-
-  /* ---- SPINNER INSIDE BUTTON ---- */
-  .spinner {
-    width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3);
-    border-top-color: white; border-radius: 50%;
-    animation: spin 0.6s linear infinite; flex-shrink: 0;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
+  .copyright { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 28px; opacity: 0.6; }
 </style>
 </head>
 <body>
-
 <div class="container">
-
   <div class="header">
     <div class="header-row">
       <div class="logo">
@@ -255,23 +172,21 @@
       </div>
       <div>
         <h1>Scottish Financial Data Puller</h1>
-        <p class="sub">NOMIS BRES &amp; Export Statistics Scotland · SIC 64–66</p>
+        <p class="sub">NOMIS BRES &amp; Export Statistics Scotland · SIC 64.1–64.3</p>
       </div>
     </div>
   </div>
 
   <button class="pull-btn" id="pullAllBtn" onclick="pullAll()">
     <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="8 17 12 21 16 17"/>
-      <line x1="12" y1="12" x2="12" y2="21"/>
+      <polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/>
       <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"/>
     </svg>
     Pull All Data
   </button>
 
   <div class="grid">
-
-    <!-- ===== NOMIS ===== -->
+    <!-- NOMIS -->
     <div class="card">
       <div class="card-head">
         <div class="card-title">
@@ -284,27 +199,20 @@
         </div>
         <span class="badge idle" id="nomisBadge"><span class="dot"></span>Ready</span>
       </div>
-
       <p class="desc">
-        Business Register &amp; Employment Survey · Scotland total<br>
+        Business Register &amp; Employment Survey · Scotland<br>
         SIC 64.1 (Monetary intermediation) · 64.2 (Holding companies) · 64.3 (Trusts/funds)<br>
         Employee counts
       </p>
-
       <div class="controls">
         <label>Year</label>
         <select id="nomisYear">
           <option value="latest">Latest</option>
-          <option value="2024">2024</option>
-          <option value="2023">2023</option>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
-          <option value="2019">2019</option>
-          <option value="2018">2018</option>
-          <option value="2017">2017</option>
-          <option value="2016">2016</option>
-          <option value="2015">2015</option>
+          <option value="2024">2024</option><option value="2023">2023</option>
+          <option value="2022">2022</option><option value="2021">2021</option>
+          <option value="2020">2020</option><option value="2019">2019</option>
+          <option value="2018">2018</option><option value="2017">2017</option>
+          <option value="2016">2016</option><option value="2015">2015</option>
         </select>
         <button class="btn btn-blue" id="nomisBtn" onclick="fetchNomis()">Fetch</button>
         <button class="btn btn-ghost" id="nomisExport" onclick="exportCSV('nomis')" style="display:none">
@@ -312,19 +220,17 @@
           Export CSV
         </button>
       </div>
-
       <div id="nomisError"></div>
       <div id="nomisResults"></div>
     </div>
 
-    <!-- ===== ESS ===== -->
+    <!-- ESS -->
     <div class="card">
       <div class="card-head">
         <div class="card-title">
           <div class="card-icon teal">
             <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="2" y1="12" x2="22" y2="12"/>
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
               <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
             </svg>
           </div>
@@ -332,12 +238,10 @@
         </div>
         <span class="badge idle" id="essBadge"><span class="dot"></span>Ready</span>
       </div>
-
       <p class="desc">
         Scottish exports by industry sector · statistics.gov.scot SPARQL<br>
         Filtered for financial &amp; insurance sectors · International + rUK
       </p>
-
       <div class="controls">
         <button class="btn btn-teal" id="essBtn" onclick="fetchESS()">Fetch</button>
         <button class="btn btn-ghost" id="essExport" onclick="exportCSV('ess')" style="display:none">
@@ -346,52 +250,34 @@
         </button>
         <a class="ext-link" href="https://www.gov.scot/publications/exports-statistics-scotland-2023/" target="_blank" rel="noopener">ESS 2023 Publication ↗</a>
       </div>
-
       <div id="essError"></div>
       <div id="essResults"></div>
     </div>
-
   </div>
 
-  <!-- ===== INFO FOOTER ===== -->
   <div class="info-footer">
     <h3>Data Source Reference</h3>
     <div class="info-cols">
       <div>
         <p class="label">NOMIS BRES (Open Access)</p>
-        <p>
-          Dataset: NM_189_1 (NEWBRES6PUB)<br>
-          Geography: Scotland (2013265931)<br>
-          Industries: SIC 64, 65, 66<br>
-          Measures: Count (employees + employment)<br>
-          Latest: 2024 (released Oct 2025)<br><br>
-          <a href="https://www.nomisweb.co.uk/datasets/newbres6pub" target="_blank">View on NOMIS →</a>
-        </p>
+        <p>Dataset: NM_189_1<br>Geography: Scotland (2092957701)<br>Industries: SIC 64.1, 64.2, 64.3<br>Measures: Employee count<br>Latest: 2024 (released Oct 2025)<br><br>
+          <a href="https://www.nomisweb.co.uk/datasets/newbres6pub" target="_blank">View on NOMIS →</a></p>
       </div>
       <div>
         <p class="label">Export Statistics Scotland</p>
-        <p>
-          Source: Scottish Government<br>
-          Endpoint: statistics.gov.scot SPARQL<br>
-          Coverage: Intl + Rest of UK exports<br>
-          Sectors: Financial &amp; insurance filter<br>
-          Latest: ESS 2023 (published Dec 2025)<br><br>
-          <a href="https://www.gov.scot/collections/trade-statistics/" target="_blank">View on gov.scot →</a>
-        </p>
+        <p>Source: Scottish Government<br>Endpoint: statistics.gov.scot SPARQL<br>Coverage: Intl + Rest of UK exports<br>Sectors: Financial &amp; insurance<br>Latest: ESS 2023 (published Dec 2025)<br><br>
+          <a href="https://www.gov.scot/collections/trade-statistics/" target="_blank">View on gov.scot →</a></p>
       </div>
     </div>
   </div>
-
   <p class="copyright">Data sourced from ONS / NOMIS and Scottish Government · Crown Copyright applies</p>
-
 </div>
 
 <script>
-// ========== STATE ==========
 let nomisData = null;
 let essData = null;
 
-// ========== CSV PARSING ==========
+// ===== CSV PARSING =====
 function parseCSVLine(line) {
   const r = []; let c = '', q = false;
   for (let i = 0; i < line.length; i++) {
@@ -403,7 +289,6 @@ function parseCSVLine(line) {
   r.push(c.trim());
   return r;
 }
-
 function parseCSV(text) {
   const lines = text.trim().split('\n');
   if (lines.length < 2) return { headers: [], rows: [] };
@@ -420,38 +305,43 @@ function parseCSV(text) {
   return { headers, rows };
 }
 
-// ========== UI HELPERS ==========
+// ===== UI =====
 function setBadge(id, status) {
   const el = document.getElementById(id);
   const labels = { idle:'Ready', loading:'Fetching…', success:'Done', error:'Error' };
   el.className = 'badge ' + status;
   el.innerHTML = '<span class="dot"></span>' + labels[status];
 }
-
 function showError(id, msg, url, linkText) {
   document.getElementById(id).innerHTML =
     '<div class="error-box"><p>' + msg + '</p>' +
     (url ? '<p style="margin-top:8px"><a href="'+url+'" target="_blank" rel="noopener">'+linkText+'</a></p>' : '') +
     '</div>';
 }
-
 function clearEl(id) { document.getElementById(id).innerHTML = ''; }
 
-function isNumCol(h) {
-  return /^(OBS_VALUE|value|count)$/i.test(h);
-}
+// Clean column names for display
+const FRIENDLY_HEADERS = {
+  'DATE_NAME': 'Year',
+  'GEOGRAPHY_NAME': 'Country',
+  'INDUSTRY_NAME': 'Industry',
+  'OBS_VALUE': 'Employees'
+};
 
 function renderTable(id, data, title) {
   const el = document.getElementById(id);
   if (!data || !data.rows.length) { el.innerHTML = ''; return; }
   let h = '<p class="table-label">' + title + '</p><div class="table-wrap"><table><thead><tr>';
-  data.headers.forEach(col => { h += '<th>' + col.replace(/_/g,' ') + '</th>'; });
+  data.headers.forEach(col => {
+    const display = FRIENDLY_HEADERS[col] || col.replace(/_/g,' ');
+    h += '<th>' + display + '</th>';
+  });
   h += '</tr></thead><tbody>';
   data.rows.forEach(row => {
     h += '<tr>';
     data.headers.forEach(col => {
       let v = row[col] || '';
-      const numeric = isNumCol(col);
+      const numeric = (col === 'OBS_VALUE' || col === 'value');
       if (numeric) { const n = Number(v); if (!isNaN(n)) v = n.toLocaleString(); }
       h += '<td' + (numeric ? ' class="num"' : '') + '>' + v + '</td>';
     });
@@ -463,8 +353,10 @@ function renderTable(id, data, title) {
 }
 
 function downloadCSV(data, filename) {
+  // Use friendly headers in the export too
+  const exportHeaders = data.headers.map(h => FRIENDLY_HEADERS[h] || h);
   const csv = [
-    data.headers.join(','),
+    exportHeaders.join(','),
     ...data.rows.map(r => data.headers.map(h => '"'+(r[h]||'').replace(/"/g,'""')+'"').join(','))
   ].join('\n');
   const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
@@ -473,30 +365,27 @@ function downloadCSV(data, filename) {
   a.download = filename;
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }
-
 function exportCSV(src) {
   if (src === 'nomis' && nomisData) {
-    downloadCSV(nomisData, 'nomis_bres_scotland_sic64-66_' + document.getElementById('nomisYear').value + '.csv');
+    downloadCSV(nomisData, 'nomis_bres_scotland_sic64_' + document.getElementById('nomisYear').value + '.csv');
   } else if (src === 'ess' && essData) {
     downloadCSV(essData, 'ess_scotland_exports_financial.csv');
   }
 }
 
-// ========== NOMIS ==========
+// ===== NOMIS =====
 function buildNomisUrl() {
   const yr = document.getElementById('nomisYear').value;
-  // Exact codes from NOMIS query builder:
-  // geography=2092957701 (Scotland)
-  // industry=142606977...142606979 (SIC 64.1, 64.2, 64.3)
-  // employment_status=1 (Employees)
-  // measures=20100 (Count)
+  // Exact codes from NOMIS query builder
+  // select= limits to just the 4 clean columns: Year, Country, Industry, Employee count
   return 'https://www.nomisweb.co.uk/api/v01/dataset/NM_189_1.data.csv'
     + '?geography=2092957701'
     + '&date=' + (yr === 'latest' ? 'latest' : yr)
     + '&industry=142606977...142606979'
     + '&employment_status=1'
     + '&measure=1'
-    + '&measures=20100';
+    + '&measures=20100'
+    + '&select=DATE_NAME,GEOGRAPHY_NAME,INDUSTRY_NAME,OBS_VALUE';
 }
 
 async function fetchNomis() {
@@ -504,7 +393,6 @@ async function fetchNomis() {
   clearEl('nomisError'); clearEl('nomisResults');
   document.getElementById('nomisExport').style.display = 'none';
   document.getElementById('nomisBtn').disabled = true;
-
   try {
     const url = buildNomisUrl();
     const res = await fetch(url);
@@ -513,7 +401,7 @@ async function fetchNomis() {
     const parsed = parseCSV(text);
     if (!parsed.rows.length) throw new Error('No rows returned — the year may not have data yet.');
     nomisData = parsed;
-    renderTable('nomisResults', parsed, 'BRES Results — Scotland, SIC 64.1–64.3, Employees');
+    renderTable('nomisResults', parsed, 'BRES — Scotland, SIC 64.1–64.3, Employees');
     document.getElementById('nomisExport').style.display = '';
     setBadge('nomisBadge','success');
   } catch (e) {
@@ -523,15 +411,14 @@ async function fetchNomis() {
   document.getElementById('nomisBtn').disabled = false;
 }
 
-// ========== ESS ==========
+// ===== ESS =====
 async function fetchESS() {
   setBadge('essBadge','loading');
   clearEl('essError'); clearEl('essResults');
   document.getElementById('essExport').style.display = 'none';
   document.getElementById('essBtn').disabled = true;
 
-  const sparql1 = `
-PREFIX qb: <http://purl.org/linked-data/cube#>
+  const sparql1 = `PREFIX qb: <http://purl.org/linked-data/cube#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sdmx: <http://purl.org/linked-data/sdmx/2009/dimension#>
 PREFIX stat: <http://statistics.gov.scot/def/dimension/>
@@ -542,10 +429,9 @@ SELECT ?year ?industry ?destination ?value WHERE {
        stat:tradingPartner ?dUri ; meas:count ?value .
   ?pUri rdfs:label ?year . ?iUri rdfs:label ?industry . ?dUri rdfs:label ?destination .
   FILTER(CONTAINS(LCASE(?industry),"financial") || CONTAINS(LCASE(?industry),"insurance"))
-} ORDER BY DESC(?year) ?industry ?destination LIMIT 200`.trim();
+} ORDER BY DESC(?year) ?industry ?destination LIMIT 200`;
 
-  const sparql2 = `
-PREFIX qb: <http://purl.org/linked-data/cube#>
+  const sparql2 = `PREFIX qb: <http://purl.org/linked-data/cube#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sdmx: <http://purl.org/linked-data/sdmx/2009/dimension#>
 PREFIX stat: <http://statistics.gov.scot/def/dimension/>
@@ -555,7 +441,7 @@ SELECT ?year ?industry ?destination ?value WHERE {
        sdmx:refPeriod ?pUri ; stat:industrySector ?iUri ;
        stat:tradingPartner ?dUri ; meas:count ?value .
   ?pUri rdfs:label ?year . ?iUri rdfs:label ?industry . ?dUri rdfs:label ?destination .
-} ORDER BY DESC(?year) ?industry ?destination LIMIT 300`.trim();
+} ORDER BY DESC(?year) ?industry ?destination LIMIT 300`;
 
   try {
     let url = 'https://statistics.gov.scot/sparql.csv?query=' + encodeURIComponent(sparql1);
@@ -563,7 +449,6 @@ SELECT ?year ?industry ?destination ?value WHERE {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     let text = await res.text();
     let parsed = parseCSV(text);
-
     if (!parsed.rows.length) {
       url = 'https://statistics.gov.scot/sparql.csv?query=' + encodeURIComponent(sparql2);
       res = await fetch(url);
@@ -571,9 +456,7 @@ SELECT ?year ?industry ?destination ?value WHERE {
       text = await res.text();
       parsed = parseCSV(text);
     }
-
     if (!parsed.rows.length) throw new Error('The linked data exports dataset may be retired. Use the Excel tables from gov.scot instead.');
-
     essData = parsed;
     renderTable('essResults', parsed, 'Exports by Industry — Scotland');
     document.getElementById('essExport').style.display = '';
@@ -585,9 +468,7 @@ SELECT ?year ?industry ?destination ?value WHERE {
   document.getElementById('essBtn').disabled = false;
 }
 
-// ========== PULL ALL ==========
 function pullAll() { fetchNomis(); fetchESS(); }
 </script>
-
 </body>
 </html>
